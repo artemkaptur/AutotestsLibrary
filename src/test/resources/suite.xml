@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="FirstSuite">
+
+	<test name="LibraryTest">
+
+		<groups>
+			<dependencies>
+				<group name="2" depends-on="1" />
+				<group name="3" depends-on="2" />
+				<group name="4" depends-on="3" />
+				<group name="5" depends-on="4" />
+				<group name="6" depends-on="5" />
+				<group name="7" depends-on="6" />
+				<group name="8" depends-on="7" />
+				<group name="9" depends-on="8" />
+				<group name="10" depends-on="9" />
+			</dependencies>
+		</groups>
+
+		<packages>
+			<package name="com.epam.libraryautotest.tests"></package>
+		</packages>
+
+	</test>
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+		<listener
+			class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+		<listener
+			class-name="com.epam.libraryautotest.listener.ScreenShotOnFailListener"></listener>
+	</listeners>
+
+</suite>
